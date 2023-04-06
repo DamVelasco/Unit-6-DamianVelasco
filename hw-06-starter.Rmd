@@ -1,7 +1,7 @@
 ---
 title: "Homework 6 - Iterating functions on Chicago cold"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Damian Velasco"
+date: "4/6/23"
 output: html_document
 ---
 
@@ -15,8 +15,22 @@ library(lubridate)
 ## Exercises
 
 ### Exercise 1
+```{r write-convert-temperature}
+convert_temperature <- function(temperature_vector){
+  
+  celcius <- (temperature_vector - 32) * (5/9) 
+  kelvin <- celcius + 273.15 
+    
+  tibble("fahrenheit" = temperature_vector,
+         "celcius" = celcius,
+         "kelvin" = kelvin) 
+  
+}
+```
 
-Remove this text, and add your answer for Exercise 1 here.
+```{r import-convert-temprature, eval = F}
+source("convert_temperature.R")
+```
 
 ### Exercise 2
 

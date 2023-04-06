@@ -1,7 +1,7 @@
 ---
 title: "Lab 06 - Writing functions`"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Damian Velasco"
+date: "4/6/23"
 output: html_document
 ---
 
@@ -14,20 +14,47 @@ library(tidyverse)
 ## Exercises
 
 ### Exercise 1
+```{r Survey-new}
+glimpse(class_survey)
+class_survey <- read_csv("data/class-survey.csv")
+```
 
-Remove this text, and add your answer for Exercise 1 here.
+There are 21 observations in this data set, theses data types are doubles. 
 
 ### Exercise 2
-
-Remove this text, and add your answer for Exercise 2 here.
+```{r pivot-longer, eval= F}
+class_survey_long <- class_survey %>%
+  mutate(flights = case_when(
+    flights == "once" ~ "1",
+    TRUE ~ flights
+  ),
+  flights = as.numeric(flights)) %>%
+  
+  pivot_longer(
+    names_to = "question",
+    values_to = "response",
+    cols = 2:6
+  )
+head(class_survey_long, 10)
+```
 
 ### Exercise 3
 
-Remove this text, and add your answer for Exercise 3 here.
+```{r summarize-long-data}
+class_survey_long %>%
+group_by(question) %>%
+summarise(min_survey = min(response, na.rm = T),max_survey = max(response, na.rm = T),median_survey = median(response, na.rm = T),mean_survey = mean(response, na.rm = T))
+
+```
 
 ### Exercise 4
 
-Remove this text, and add your answer for Exercise 4 here.
+```{r define-function-body, eval = F}
+min(response, na.rm = T)
+max(response, na.rm = T)
+median(response, na.rm = T)
+mean(response, na.rm = T)
+```
 
 ### Exercise 5
 
