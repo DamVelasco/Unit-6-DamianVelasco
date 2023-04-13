@@ -70,7 +70,7 @@ mean(response_vector, na.rm = T)
 
 ### Exercise 6
 
-I would think that summarize would not be good to call just because 
+I would think that summarize would not be good to call just because its too general and we would have to input all the data when we only need some data.
 
 ### Exercise 7
 
@@ -88,12 +88,32 @@ compute_summary_stats <- function(response_vector){
 
 ### Exercise 8
 
-Remove this text, and add your answer for Exercise 8 here.
+```{r test-compute-summary-stats}
+
+  compute_summary_stats(class_survey$pets)
+```
+
 
 ### Exercise 9
 
-Remove this text, and add your answer for Exercise 9 here.
+This is because there is no tibble in the code so we do not get all the data outputted to us.
 
 ### Exercise 10
 
-Remove this text, and add your answer for Exercise 10 here.
+```{r fix-compute-summary-stats, eval = F}
+compute_summary_stats <- function(response_vector){
+  
+  min <- min(response_vector, na.rm = T)
+  median <- median(response_vector, na.rm = T)
+  mean <- mean(response_vector, na.rm = T)
+  max <- max(response_vector, na.rm = T)
+  
+      tibble(
+              "min" = min,
+              "median" = median,
+              "mean" = mean,
+              "max" = max()
+  )
+  
+}
+```
