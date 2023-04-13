@@ -15,34 +15,33 @@ library(lubridate)
 ## Exercises
 
 ### Exercise 1
-```{r write-convert-temperature}
-convert_temperature <- function(temperature_vector){
-  
-  celcius <- (temperature_vector - 32) * (5/9) 
-  kelvin <- celcius + 273.15 
-    
-  tibble("fahrenheit" = temperature_vector,
-         "celcius" = celcius,
-         "kelvin" = kelvin) 
-  
-}
-```
 
-```{r import-convert-temprature, eval = F}
+
+```{r import-convert-temprature, eval = T}
 source("convert_temperature.R")
 ```
 
 ### Exercise 2
-
-Remove this text, and add your answer for Exercise 2 here.
+```{r sanity-check}
+convert_temperature(32)
+```
 
 ### Exercise 3
 
-Remove this text, and add your answer for Exercise 3 here.
+```{r, import-data}
+the_loop <- read_csv("data/chicago-loop.csv")
+oak_park <- read_csv("data/chicago-oak-park.csv")
+south_loop <- read_csv("data/chicago-south-loop.csv")
+```
 
+```{r glimpse-data}
+glimpse(the_loop)
+glimpse(oak_park)
+glimpse(south_loop)
+```
 ### Exercise 4
 
-Remove this text, and add your answer for Exercise 4 here.
+
 
 ### Exercise 5
 
