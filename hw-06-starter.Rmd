@@ -29,7 +29,7 @@ convert_temperature(32)
 ### Exercise 3
 
 ```{r, import-data}
-the_loop <- read_csv("data/chicago-loop.csv")
+loop <- read_csv("data/chicago-loop.csv")
 oak_park <- read_csv("data/chicago-oak-park.csv")
 south_loop <- read_csv("data/chicago-south-loop.csv")
 ```
@@ -41,23 +41,55 @@ glimpse(south_loop)
 ```
 ### Exercise 4
 
+```{r, col-types}
+loop <- read_csv("data/chicago-loop.csv", col_types = list(col_date()))
 
+oak_park <- read_csv("data/chicago-oak-park.csv", col_types = list(col_date()))
 
+south_loop <- read_csv("data/chicago-south-loop.csv", col_types = list(col_date()))
+```
+
+```{r glimpse-data}
+glimpse(the_loop)
+glimpse(oak_park)
+glimpse(south_loop)
+```
 ### Exercise 5
 
-Remove this text, and add your answer for Exercise 5 here.
+```{r wrangle-and-merge-data, eval = T}
+loop <- loop %>% 
+  mutate(neighborhood = "loop") %>% 
+  relocate(neighborhood)
+
+south_loop <- south_loop %>% 
+  mutate(neighborhood = "south_loop") %>% 
+  relocate(neighborhood)
+
+oak_park <- oak_park %>% 
+  mutate(neighborhood = "oak_park") %>% 
+  relocate(neighborhood)
+
+chicago_temperatures <- loop %>% 
+  bind_rows(south_loop) %>% 
+  bind_rows(oak_park)
+```
 
 ### Exercise 6
-
-Remove this text, and add your answer for Exercise 6 here.
-
+```{r plot}
+ggplot(chicago_temperatures, aes(x = date, y = temperature_high, color = neighborhood)) +
+geom_point()
+```
 ### Exercise 7
 
-Remove this text, and add your answer for Exercise 7 here.
+The data does not support that because the loop is the coldest and oak park is the warmest, and what this is saying that south loop and loop should be warmer but that is not true here.
 
 ### Exercise 8
 
-Remove this text, and add your answer for Exercise 8 here.
+```{r create-list, eval = T}
+chicago_temperatures_list <- map(chicago_temperatures$temperature_high,
+                                  chicago_temperatures$temperature_avg,
+                                  chicago_temperatures$temperature_low)
+```
 
 ### Exercise 9
 
