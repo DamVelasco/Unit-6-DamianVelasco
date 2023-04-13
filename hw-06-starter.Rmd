@@ -86,15 +86,25 @@ The data does not support that because the loop is the coldest and oak park is t
 ### Exercise 8
 
 ```{r create-list, eval = T}
-chicago_temperatures_list <- map(chicago_temperatures$temperature_high,
+chicago_temperatures_list <- list(chicago_temperatures$temperature_high,
                                   chicago_temperatures$temperature_avg,
                                   chicago_temperatures$temperature_low)
 ```
 
 ### Exercise 9
 
-Remove this text, and add your answer for Exercise 9 here.
+
 
 ### Exercise 10
 
-Remove this text, and add your answer for Exercise 10 here.
+```{r rejoin-data, eval = F}
+___ %>% 
+    pivot_longer(
+    names_to = "measurement",
+    values_to = "fahrenheit",
+    cols = 3:5
+  ) %>% 
+  select(___, ___) %>% 
+  bind_cols(chicago_temperatures_converted)
+```
+
