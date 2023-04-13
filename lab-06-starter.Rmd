@@ -117,3 +117,8 @@ compute_summary_stats <- function(response_vector){
   
 }
 ```
+
+```{r test-compute-summary, eval=TRUE}
+
+  compute_summary_stats(class_survey$pets)
+```
