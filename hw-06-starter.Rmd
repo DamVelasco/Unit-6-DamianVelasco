@@ -93,18 +93,21 @@ chicago_temperatures_list <- list(chicago_temperatures$temperature_high,
 
 ### Exercise 9
 
+```{r chicago_temperatures_converted}
+chicago_temperatures_converted <- chicago_temperatures
+```
 
 
 ### Exercise 10
 
 ```{r rejoin-data, eval = F}
-___ %>% 
+chicago_temperatures_converted %>% 
     pivot_longer(
     names_to = "measurement",
     values_to = "fahrenheit",
     cols = 3:5
   ) %>% 
-  select(___, ___) %>% 
+  select(neighborhood, date()) %>% 
   bind_cols(chicago_temperatures_converted)
 ```
 
