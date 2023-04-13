@@ -15,8 +15,9 @@ library(tidyverse)
 
 ### Exercise 1
 ```{r Survey-new}
-glimpse(class_survey)
 class_survey <- read_csv("data/class-survey.csv")
+glimpse(class_survey)
+
 ```
 
 There are 21 observations in this data set, theses data types are doubles. 
@@ -57,20 +58,33 @@ mean(response, na.rm = T)
 ```
 
 ### Exercise 5
-
-Remove this text, and add your answer for Exercise 5 here.
+What each response is needing is a response vector. It is a vector because it is a column.
 
 ```{r update-input-name, eval = F}
-# copy code here from Exercise 4
+
+min(response_vector, na.rm = T)
+max(response_vector, na.rm = T)
+median(response_vector, na.rm = T)
+mean(response_vector, na.rm = T)
 ```
 
 ### Exercise 6
 
-Remove this text, and add your answer for Exercise 6 here.
+I would think that summarize would not be good to call just because 
 
 ### Exercise 7
 
-Remove this text, and add your answer for Exercise 7 here.
+```{r write-compute-summary-stats, eval = T}
+compute_summary_stats <- function(response_vector){
+  
+  min(response_vector, na.rm = T)
+  median(response_vector, na.rm = T)
+  mean(response_vector, na.rm = T)
+  max(response_vector, na.rm = T)
+
+}
+```
+
 
 ### Exercise 8
 
