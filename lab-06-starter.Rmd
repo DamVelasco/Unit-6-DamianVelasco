@@ -68,7 +68,7 @@ median(response_vector, na.rm = T)
 mean(response_vector, na.rm = T)
 ```
 
-### Exercise 6
+### Exercise 6-.5
 
 I would think that summarize would not be good to call just because its too general and we would have to input all the data when we only need some data.
 
