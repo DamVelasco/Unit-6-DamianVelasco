@@ -109,5 +109,5 @@ chicago_temperatures_converted %>%
   ) %>% 
   select(neighborhood, date()) %>% 
   bind_cols(chicago_temperatures_converted)
-```
+```10
 
